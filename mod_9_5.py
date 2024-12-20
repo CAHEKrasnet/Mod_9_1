@@ -32,16 +32,20 @@ class Iterator:
         self.step = step
         self.pointer = start
 
-    def __iter__(self):
-        return self
+     def __iter__(self):
+        self.pointer = self.start   # pointer - указывает на текущее число в итерации (изначально start)
+        return self                 # возвращаем ссылку на самого себя, т.к. наш объект должен быть итератором
+
 
     def __next__(self):
-        result = self.pointer
-        self.pointer += self.step
-        if self.pointer >= self.stop and self.step > 0 or self.pointer < self.stop and self.step < 0:
-            raise StopIteration
+        self.pointer += self.step   # увеличиваем атрибут pointer на step
+        if self.step < 0:           # проверка на прекразение итераций при отрицательном шаге
+            if self.pointer < self.stop:
+                raise  StopIteration()
         else:
-            return result
+            if self.pointer > self.stop:
+                raise  StopIteration()
+        return self.pointer
 
 
 try:
