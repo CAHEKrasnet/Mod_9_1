@@ -19,6 +19,7 @@ __next__ - метод, увеличивающий атрибут pointer на st
 3. Создайте несколько объектов класса Iterator и совершите итерации с ними при помощи цикла for
 """
 
+
 class StepValueError(ValueError):
     pass
 
@@ -32,7 +33,7 @@ class Iterator:
         self.step = step
         self.pointer = start
 
-     def __iter__(self):
+    def __iter__(self):
         self.pointer = self.start   # pointer - указывает на текущее число в итерации (изначально start)
         return self                 # возвращаем ссылку на самого себя, т.к. наш объект должен быть итератором
 
@@ -48,6 +49,7 @@ class Iterator:
         return self.pointer
 
 
+
 try:
     iter1 = Iterator(100, 200, 0)
     for i in iter1:
@@ -59,6 +61,7 @@ iter2 = Iterator(-5, 1)
 iter3 = Iterator(6, 15, 2)
 iter4 = Iterator(5, 1, -1)
 iter5 = Iterator(10, 1)
+
 
 for i in iter2:
     print(i, end=' ')
