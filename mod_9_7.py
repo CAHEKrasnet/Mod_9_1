@@ -26,7 +26,7 @@ def is_prime(func):
                 print(f"Простое\n{result}")
             else:
                 print(f"Составное\n{result}")
-
+        return result
     return wrapper
 
 
@@ -39,10 +39,3 @@ def sum_three(a, b, c):
 res = sum_three(2, 3, 6)
 res = sum_three(45, 34, 1111)
 res = sum_three(-5, 4, 0)
-
-res = sum_three(2, 3, 6)
-print(res)
-res = sum_three(45, 34, 1111)
-print(res)
-res = sum_three(-5, 4, 0)
-print(res)
