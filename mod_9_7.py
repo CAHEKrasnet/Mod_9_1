@@ -12,19 +12,20 @@
 """
 
 
+
 def is_prime(func):
     def wrapper(*args):
         result = func(*args)
         
-        if result < 2:  
-            return f"Не простое и не сложное число\n{result}"
+        if result < 2:
+            print(f"Не простое и не сложное число\n{result}")
         elif result == 2:
-            return f"Простое\n{result}"
+            print(f"Простое\n{result}")
         elif result > 2:
             if all((result % i != 0) for i in range(2, int(result ** 0.5) + 1)):
-                return f"Простое\n{result}"
+                print(f"Простое\n{result}")
             else:
-                return f"Составное\n{result}"
+                print(f"Составное\n{result}")
 
     return wrapper
 
@@ -34,6 +35,10 @@ def sum_three(a, b, c):
     return a + b + c
     
 
+
+res = sum_three(2, 3, 6)
+res = sum_three(45, 34, 1111)
+res = sum_three(-5, 4, 0)
 
 res = sum_three(2, 3, 6)
 print(res)
